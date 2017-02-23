@@ -1,0 +1,17 @@
+{
+  "name": "overstrap",
+  "authors": [
+    "jo <jo@surikat.pro>"
+  ],
+  "description": "",
+  "main": "overstrap.scss",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
