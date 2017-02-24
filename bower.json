@@ -13,5 +13,12 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+	"jquery": "latest",
+    "jstack": "latest",
+    "bootstrap": "^4.0",
+    "material-design-icons": "latest"
+    
+  }
 }
