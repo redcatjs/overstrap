@@ -1,0 +1,37 @@
+.navbar{
+	align-items: left;
+	flex-flow: column;
+	@media(min-width: 992px){
+		.navbar-collapse{
+			width: auto;
+		}
+	}
+	
+	&.nav1{
+		z-index: 101;
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+		font-size: 17px;
+		.navbar-toggler{
+			font-size: 0.8rem;
+		}
+		
+		.nav-item{
+			padding-left: 0.8rem;
+			padding-right: 0.8rem;
+		}
+		&.navbar-light .nav-item{
+			&:hover,
+			&.active{
+				background-color: rgba(150,150,150,.20);
+			}
+		}
+	}
+	
+	&.nav-compact{
+		padding-top:0;
+		padding-bottom:0;
+		.navbar-toggler{
+			margin-top: 5px;
+		}
+	}
+}

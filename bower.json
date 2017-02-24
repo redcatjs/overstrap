@@ -4,7 +4,7 @@
     "jo <jo@surikat.pro>"
   ],
   "description": "",
-  "main": "overstrap.scss",
+  "main": ["overstrap.scss","overstrap.js"],
   "license": "MIT",
   "homepage": "",
   "ignore": [

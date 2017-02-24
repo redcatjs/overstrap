@@ -1,0 +1,76 @@
+button:focus {
+	outline: none!important;
+}
+
+.btn {
+	font-size: 0.7rem;
+	padding: 0.3rem 0.6rem;
+	&.btn-lg {
+	 
+	}
+	&.btn-md {
+		
+	}
+	&.btn-sm {
+		
+	}
+	
+	border-radius: 2px;
+	border: 0;
+	transition: .2s ease-out;
+	margin: 6px;
+	white-space: normal !important;
+	word-wrap: break-word;
+	text-transform: uppercase;
+	&:hover {
+		color: #fff;
+	}
+	&:active,
+	&:focus,
+	&.active {
+		box-shadow: 0px 8px 20px 1px rgba(0, 0, 0, 0.3);
+		outline: 0;
+	} 
+}
+
+
+.btn-group {
+	.btn {
+		margin: 0;
+	}
+}
+
+.btn-block {
+	margin: inherit;
+}
+
+.btn-primary {
+	background-color: $primary-color;
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: lighten( $primary-color, 5%)!important;
+		color: #fff;
+	}
+	&.active {
+		background-color: darken( $primary-color, 20%)!important;
+		&:hover {
+			color: #fff;
+		}
+		&:focus {
+			color: #fff;
+		}
+	}
+}
+
+.btn-legacy {
+	background: $legacy-color;
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: lighten( $legacy-color, 5%)!important;
+	}
+	&.active {
+		background-color: darken( $legacy-color, 20%)!important;
+	}
+}

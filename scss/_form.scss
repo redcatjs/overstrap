@@ -1,0 +1,14 @@
+.form-inline {
+    fieldset {
+        margin-right: 1.5rem;
+    }
+	.form-group {
+		margin-right: 2rem;
+	}
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: transparent;
+    border-bottom: 1px solid #e0e0e0;
+}
