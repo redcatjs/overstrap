@@ -233,3 +233,7 @@ textarea {
         color: #1C2331;
     }
 }
+
+.form-control:focus{
+	border-color: $brand-primary;
+}
