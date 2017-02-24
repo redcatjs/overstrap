@@ -1,13 +1,14 @@
 @import "scss/path";
 
+@import "scss/functions";
+@import "scss/variables-colors";
+@import "scss/variables";
+
 // Core variables and mixins
 @import "#{$vendor-dir}/bootstrap/scss/variables";
 @import "#{$vendor-dir}/bootstrap/scss/mixins";
 @import "#{$vendor-dir}/bootstrap/scss/custom";
 
-@import "scss/functions";
-@import "scss/variables-colors";
-@import "scss/variables";
 
 
 // Reset and dependencies
