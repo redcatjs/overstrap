@@ -1,3 +1,4 @@
+@import "scss/path";
 @import "scss/functions";
 @import "scss/variables-colors";
 @import "scss/variables";
@@ -19,3 +20,5 @@
 
 @import "scss/waves";
 @import "scss/buttons";
+
+@import "#{$vendor-dir}/material-design-icons/iconfont/material-icons"

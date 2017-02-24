@@ -1,7 +1,9 @@
+@import "scss/path";
+
 // Core variables and mixins
-@import "vendor/bower-asset/bootstrap/scss/variables";
-@import "vendor/bower-asset/bootstrap/scss/mixins";
-//@import "vendor/bower-asset/bootstrap/scss/custom";
+@import "#{$vendor-dir}/bootstrap/scss/variables";
+@import "#{$vendor-dir}/bootstrap/scss/mixins";
+@import "#{$vendor-dir}/bootstrap/scss/custom";
 
 @import "scss/functions";
 @import "scss/variables-colors";
@@ -9,44 +11,44 @@
 
 
 // Reset and dependencies
-@import "vendor/bower-asset/bootstrap/scss/normalize";
-@import "vendor/bower-asset/bootstrap/scss/print";
+@import "#{$vendor-dir}/bootstrap/scss/normalize";
+@import "#{$vendor-dir}/bootstrap/scss/print";
 
 // Core CSS
-@import "vendor/bower-asset/bootstrap/scss/reboot";
-@import "vendor/bower-asset/bootstrap/scss/type";
-@import "vendor/bower-asset/bootstrap/scss/images";
-@import "vendor/bower-asset/bootstrap/scss/code";
-@import "vendor/bower-asset/bootstrap/scss/grid";
-@import "vendor/bower-asset/bootstrap/scss/tables";
-@import "vendor/bower-asset/bootstrap/scss/forms";
-@import "vendor/bower-asset/bootstrap/scss/buttons";
+@import "#{$vendor-dir}/bootstrap/scss/reboot";
+@import "#{$vendor-dir}/bootstrap/scss/type";
+@import "#{$vendor-dir}/bootstrap/scss/images";
+@import "#{$vendor-dir}/bootstrap/scss/code";
+@import "#{$vendor-dir}/bootstrap/scss/grid";
+@import "#{$vendor-dir}/bootstrap/scss/tables";
+@import "#{$vendor-dir}/bootstrap/scss/forms";
+@import "#{$vendor-dir}/bootstrap/scss/buttons";
 
 // Components
-@import "vendor/bower-asset/bootstrap/scss/transitions";
-@import "vendor/bower-asset/bootstrap/scss/dropdown";
-@import "vendor/bower-asset/bootstrap/scss/button-group";
-@import "vendor/bower-asset/bootstrap/scss/input-group";
-@import "vendor/bower-asset/bootstrap/scss/custom-forms";
-@import "vendor/bower-asset/bootstrap/scss/nav";
-@import "vendor/bower-asset/bootstrap/scss/navbar";
-@import "vendor/bower-asset/bootstrap/scss/card";
-@import "vendor/bower-asset/bootstrap/scss/breadcrumb";
-@import "vendor/bower-asset/bootstrap/scss/pagination";
-@import "vendor/bower-asset/bootstrap/scss/badge";
-@import "vendor/bower-asset/bootstrap/scss/jumbotron";
-@import "vendor/bower-asset/bootstrap/scss/alert";
-@import "vendor/bower-asset/bootstrap/scss/progress";
-@import "vendor/bower-asset/bootstrap/scss/media";
-@import "vendor/bower-asset/bootstrap/scss/list-group";
-@import "vendor/bower-asset/bootstrap/scss/responsive-embed";
-@import "vendor/bower-asset/bootstrap/scss/close";
+@import "#{$vendor-dir}/bootstrap/scss/transitions";
+@import "#{$vendor-dir}/bootstrap/scss/dropdown";
+@import "#{$vendor-dir}/bootstrap/scss/button-group";
+@import "#{$vendor-dir}/bootstrap/scss/input-group";
+@import "#{$vendor-dir}/bootstrap/scss/custom-forms";
+@import "#{$vendor-dir}/bootstrap/scss/nav";
+@import "#{$vendor-dir}/bootstrap/scss/navbar";
+@import "#{$vendor-dir}/bootstrap/scss/card";
+@import "#{$vendor-dir}/bootstrap/scss/breadcrumb";
+@import "#{$vendor-dir}/bootstrap/scss/pagination";
+@import "#{$vendor-dir}/bootstrap/scss/badge";
+@import "#{$vendor-dir}/bootstrap/scss/jumbotron";
+@import "#{$vendor-dir}/bootstrap/scss/alert";
+@import "#{$vendor-dir}/bootstrap/scss/progress";
+@import "#{$vendor-dir}/bootstrap/scss/media";
+@import "#{$vendor-dir}/bootstrap/scss/list-group";
+@import "#{$vendor-dir}/bootstrap/scss/responsive-embed";
+@import "#{$vendor-dir}/bootstrap/scss/close";
 
 // Components w/ JavaScript
-@import "vendor/bower-asset/bootstrap/scss/modal";
-@import "vendor/bower-asset/bootstrap/scss/tooltip";
-@import "vendor/bower-asset/bootstrap/scss/popover";
-@import "vendor/bower-asset/bootstrap/scss/carousel";
+@import "#{$vendor-dir}/bootstrap/scss/modal";
+@import "#{$vendor-dir}/bootstrap/scss/tooltip";
+@import "#{$vendor-dir}/bootstrap/scss/popover";
+@import "#{$vendor-dir}/bootstrap/scss/carousel";
 
 // Utility classes
-@import "vendor/bower-asset/bootstrap/scss/utilities";
+@import "#{$vendor-dir}/bootstrap/scss/utilities";
