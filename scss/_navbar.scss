@@ -19,10 +19,13 @@
 			padding-left: 0.8rem;
 			padding-right: 0.8rem;
 		}
-		&.navbar-light .nav-item{
-			&:hover,
-			&.active{
-				background-color: rgba(150,150,150,.20);
+		&.navbar-light{
+			background-color: #fff;
+			.nav-item{
+				&:hover,
+				&.active{
+					background-color: rgba(150,150,150,.20);
+				}
 			}
 		}
 	}
