@@ -133,40 +133,6 @@ label {
         font-size: $label-font-size;
         @include transform(translateY(-140%));
     }
-    // Prefix Icons
-    .prefix {
-        position: absolute;
-        width: 3rem;
-        font-size: 2rem;
-        @include transition(color .2s);
-        &.active {
-            color: $input-focus-color;
-        }
-    }
-    .prefix ~ input,
-    .prefix ~ textarea {
-        margin-left: 3rem;
-        width: 92%;
-        width: calc(100% - 3rem);
-    }
-    .prefix ~ textarea {
-        padding-top: .8rem;
-    }
-    .prefix ~ label {
-        margin-left: 3rem;
-    }
-    @media #{$medium-and-down} {
-        .prefix ~ input {
-            width: 86%;
-            width: calc(100% - 3rem);
-        }
-    }
-    @media #{$small-and-down} {
-        .prefix ~ input {
-            width: 80%;
-            width: calc(100% - 3rem);
-        }
-    }
     &.input-group {
         .form-control {
             margin: 0;
