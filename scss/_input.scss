@@ -1,14 +1,4 @@
-input[type=text],
-input[type=password],
-input[type=email],
-input[type=url],
-input[type=time],
-input[type=date],
-input[type=datetime-local],
-input[type=tel],
-input[type=number],
-input[type=search-md],
-input[type=search],
+input:not([type=checkbox]):not([type=radio]),
 textarea.m-textarea {
     // General Styles
     background-color: transparent;
@@ -110,38 +100,6 @@ label {
     margin-bottom: 1rem;
     &:focus {
         background: transparent;
-    }
-}
-
-// Styling for input field wrapper
-.m-fieldset {
-    position: relative;
-    margin-bottom: 1.5rem;
-    .btn {
-        margin-bottom: 1.5rem;
-    }
-    label {
-        color: #757575;
-        position: absolute;
-        top: 0.8rem;
-        left: 0;
-        font-size: 1rem;
-        cursor: text;
-        @include transition(.2s ease-out);
-    }
-    label.active {
-        font-size: $label-font-size;
-        @include transform(translateY(-140%));
-    }
-    &.input-group {
-        .form-control {
-            margin: 0;
-            padding-left:1rem;
-            @include placeholder {
-                color: #999;
-                padding-top: 2px;
-            }
-        }
     }
 }
 

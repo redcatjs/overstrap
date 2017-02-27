@@ -17,3 +17,10 @@ a.waves-effect{
     height: 1.8em;
     line-height: 1.8em;
 }
+.waves-circle{
+	border-radius: 50% !important;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: inline-flex;
+	align-items: center;
+}

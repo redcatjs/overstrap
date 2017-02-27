@@ -27,7 +27,7 @@
 		}
 	}
 	
-	
+
 	jstack.loader('input[autofocus]',function(){
 		$(this).siblings('label, i').addClass('active');
 	});
