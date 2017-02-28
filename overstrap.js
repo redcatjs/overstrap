@@ -1,36 +1,11 @@
 (function(){
 	const input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea';
-	
-	function validate_field(object) {
-		var hasLength = object.attr('length') !== undefined;
-		var lenAttr = parseInt(object.attr('length'));
-		var len = object.val().length;
-
-		if (object.val().length === 0 && object[0].validity.badInput === false) {
-			if (object.hasClass('validate')) {
-				object.removeClass('valid');
-				object.removeClass('invalid');
-			}
-		}
-		else {
-			if (object.hasClass('validate')) {
-				// Check for character counter attributes
-				if ((object.is(':valid') && hasLength && (len < lenAttr)) || (object.is(':valid') && !hasLength)) {
-					object.removeClass('invalid');
-					object.addClass('valid');
-				}
-				else {
-					object.removeClass('valid');
-					object.addClass('invalid');
-				}
-			}
-		}
-	}
+	const defaultOptions = {
+		animatedBar: true,
+	};
 	
 	$.overstrap = function(options){
-		options = $.extend(true,{
-			animatedBar: true,
-		},options);
+		options = $.extend(true,defaultOptions,options);
 		
 		
 		jstack.loader('.input-field',function(){
@@ -40,8 +15,8 @@
 				autofocus.siblings('label, i').addClass('active');
 			}
 			
-			let input = $el.find(input_selector);
-			if(input.length){
+			let inputs = $el.find(input_selector);
+			if(inputs.length){
 				if(options.animatedBar){
 					$el.addClass('animated-bar');
 					if(!$el.find('.bar').length){
@@ -49,29 +24,20 @@
 					}
 				}
 				
-				input.each(function(){
-					var $el = $(this);
-					var elements = $el.siblings('label, i');
-					if($el.val().length > 0 || $el.attr('placeholder') !== undefined || this.validity.badInput === true){
-						elements.addClass('active');
+				inputs.each(function(){
+					let input = $(this);
+					if(input.val().length>0 || this.hasAttribute('placeholder') || input.is(':focus')){
+						$el.addClass('active');
 					}
-					else{
-						elements.removeClass('active');
-					}
-					$el.on('change', function(){
-						if ($el.val().length !== 0 || $el.attr('placeholder') !== undefined) {
-							elements.addClass('active');
+					input.on('change blur', function(){
+						if($el.val().length){
+							$el.addClass('active');
 						}
-						validate_field($el);
-					});
-					$el.on('focus', function () {
-						elements.addClass('active');
-					});
-					$el.on('blur', function () {
-						if ($el.val().length === 0 && this.validity.badInput !== true && $el.attr('placeholder') === undefined) {
-							elements.removeClass('active');
+						else{
+							$el.removeClass('active');
 						}
-						validate_field($el);
+					}).on('focus', function(){
+						$el.addClass('active');
 					});
 				});
 				

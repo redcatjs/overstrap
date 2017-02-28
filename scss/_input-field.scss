@@ -15,6 +15,15 @@
     input:not([type=checkbox]):not([type=radio]){
 		padding-top:0;
 		padding-bottom:0;
+		&:focus,
+/*
+		&[placeholder]{
+			~ label {
+				font-size: $label-font-size;
+				@include transform(translateY(-100%));
+			}
+		}
+*/
 		~ label {
 			color: #757575;
 			position: absolute;
@@ -23,10 +32,6 @@
 			font-size: 1rem;
 			cursor: text;
 			@include transition(.2s ease-out);
-			&.active {
-				font-size: $label-font-size;
-				@include transform(translateY(-100%));
-			}
 		}
 	}
 	
@@ -51,15 +56,22 @@
 		}
 	}
 	
+	&.active {
+		.prefix{
+			color: $input-focus-color;
+		}
+		label {
+			font-size: $label-font-size;
+			@include transform(translateY(-100%));
+		}
+	}
+	
 	.prefix{
 		margin-top: 0.4rem;
 		position: absolute;
 		width: 3rem;
 		font-size: 2rem;
 		@include transition(color .2s);
-		&.active {
-			color: $input-focus-color;
-		}
 		
 		~ input,
 		~ textarea {
