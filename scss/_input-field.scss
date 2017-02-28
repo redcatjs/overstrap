@@ -62,7 +62,7 @@
 		}
 		label {
 			font-size: $label-font-size;
-			@include transform(translateY(-100%));
+			@include transform(translateY(-80%));
 		}
 	}
 	
