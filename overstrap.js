@@ -32,6 +32,12 @@
 		$(this).siblings('label, i').addClass('active');
 	});
 
+	jstack.loader('.animated-bar',function(){
+		var $el = $(this);
+		if(!$el.find('.bar').length){
+			$el.append('<span class="bar" />');
+		}
+	});
 	
 	jstack.loader(input_selector,function(){
 		var $el = $(this);

@@ -107,7 +107,7 @@
 				bottom:0;
 				position:absolute;
 				background:$primary-color;
-				@include transition(0.4s ease);
+				@include transition(.4s ease);
 			}
 			&:before {
 				left:50%;
