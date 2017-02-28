@@ -3,16 +3,14 @@ button:focus {
 }
 
 .btn {
-	font-size: 0.7rem;
+	font-size: 0.8rem;
 	padding: 0.3rem 0.6rem;
 	&.btn-lg {
-	 
-	}
-	&.btn-md {
 		
 	}
-	&.btn-sm {
-		
+	&.btn-sm {		
+		font-size: 0.7rem;
+		padding: 0.2rem 0.5rem;
 	}
 	
 	border-radius: 2px;
@@ -23,7 +21,7 @@ button:focus {
 	word-wrap: break-word;
 	text-transform: uppercase;
 	&:hover {
-		
+		box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
 	}
 	&:active,
 	&:focus,
@@ -46,6 +44,7 @@ button:focus {
 
 .btn-primary {
 	background-color: $primary-color;
+	color: #fff;
 	&:hover,
 	&:focus,
 	&:active {
