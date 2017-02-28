@@ -2,11 +2,26 @@
 	const input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea';
 	const defaultOptions = {
 		animatedBar: true,
+		validate: function(input){
+			return input.is(':valid');
+		}
 	};
 	
 	$.overstrap = function(options){
 		options = $.extend(true,defaultOptions,options);
 		
+		function validate_field(input){
+			if(input.hasClass('validate')){
+				if(options.validate(input)){
+					input.removeClass('invalid')
+					input.addClass('valid');
+				}
+				else{
+					input.removeClass('valid');
+					input.addClass('invalid');
+				}
+			}
+		}
 		
 		jstack.loader('.input-field',function(){
 			let $el = $(this);
@@ -23,22 +38,31 @@
 						$el.append('<span class="bar" />');
 					}
 				}
-				
 				inputs.each(function(){
 					let input = $(this);
-					if(input.val().length>0 || this.hasAttribute('placeholder') || input.is(':focus')){
+					if(input.val()){
+						validate_field(input);
+					}
+					if(input.val() || this.hasAttribute('placeholder') || input.is(':focus')){
 						$el.addClass('active');
 					}
-					input.on('change blur', function(){
-						if($el.val().length){
+					input
+						.on('change blur reset', function(e){
+							if(input.val()){
+								$el.addClass('active');
+							}
+							else{
+								$el.removeClass('active');
+							}
+							validate_field(input);
+						})
+						.on('reset', function(){
+							$(this).removeClass('valid').removeClass('invalid');
+						})
+						.on('focus', function(){
 							$el.addClass('active');
-						}
-						else{
-							$el.removeClass('active');
-						}
-					}).on('focus', function(){
-						$el.addClass('active');
-					});
+						})
+					;
 				});
 				
 			}
@@ -48,21 +72,8 @@
 		});
 		
 		
-		
-		$.on('reset', 'form', function (e) {
-			var formReset = $(e.target);
-			formReset.find(input_selector).removeClass('valid').removeClass('invalid');
-			formReset.find(input_selector).each(function () {
-				if ($(this).attr('value') === '') {
-					$(this).siblings('label, i').removeClass('active');
-				}
-			});
-
-			// Reset select
-			formReset.find('select.initialized').each(function () {
-				var reset_text = formReset.find('option[selected]').text();
-				formReset.siblings('input.select-dropdown').val(reset_text);
-			});
+		$.on('reset', 'form', function(){
+			$(this).find(input_selector).trigger('reset');
 		});
 		
 	};
