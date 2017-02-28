@@ -15,8 +15,8 @@
     input:not([type=checkbox]):not([type=radio]){
 		padding-top:0;
 		padding-bottom:0;
-		&:focus,
 /*
+		&:focus,
 		&[placeholder]{
 			~ label {
 				font-size: $label-font-size;
