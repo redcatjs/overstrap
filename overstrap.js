@@ -3,6 +3,7 @@
 	const defaultOptions = {
 		animatedBar: true,
 		validate: function(input){
+			input.trigger('validate');
 			return input.is(':valid');
 		}
 	};
@@ -40,10 +41,11 @@
 				}
 				inputs.each(function(){
 					let input = $(this);
-					if(input.val()){
+					let val = input.val().length;
+					if(val){
 						validate_field(input);
 					}
-					if(input.val() || this.hasAttribute('placeholder') || input.is(':focus')){
+					if(val || this.hasAttribute('placeholder') || input.is(':focus')){
 						$el.addClass('active');
 					}
 					input
