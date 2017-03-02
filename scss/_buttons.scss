@@ -73,3 +73,11 @@ button:focus {
 		background-color: darken( $legacy-color, 20%)!important;
 	}
 }
+
+.btn-reverse {
+	background-color: #fff;
+	color: #545454;
+	&:hover{
+		color: #fff;
+	}
+}
