@@ -86,6 +86,10 @@
 			$(this).find(input_selector).trigger('reset');
 		});
 		
+		//bootstrap 4 bugfix !
+		$.on('mousedown','.dropdown-menu *',function(e){
+			return false;
+		});
 	};
 
 }());
