@@ -45,7 +45,7 @@
 					if(val){
 						validate_field(input);
 					}
-					if(val || this.hasAttribute('placeholder') || input.is(':focus')){
+					if(val || input.is(':focus')){
 						$el.addClass('active');
 					}
 					

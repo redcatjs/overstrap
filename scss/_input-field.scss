@@ -17,13 +17,13 @@
 		padding-bottom:0;
 /*
 		&:focus,
+*/
 		&[placeholder]{
 			~ label {
 				font-size: $label-font-size;
 				@include transform(translateY(-100%));
 			}
 		}
-*/
 		~ label {
 			color: #757575;
 			position: absolute;
