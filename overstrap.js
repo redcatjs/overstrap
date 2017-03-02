@@ -48,6 +48,14 @@
 					if(val || this.hasAttribute('placeholder') || input.is(':focus')){
 						$el.addClass('active');
 					}
+					
+					var id = input.requiredId();
+					input.nextUntil('input','label').each(function(){
+						if(!this.hasAttribute('for')){
+							this.setAttribute('for',id);
+						}
+					});
+					 
 					input
 						.on('change blur reset', function(e){
 							if(input.val()){
