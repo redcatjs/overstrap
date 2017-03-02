@@ -1,5 +1,13 @@
+.icon{
+	display: inline-flex;
+    vertical-align: top;
+}
 .material-icons{
 	font-size: inherit;
+	@extend .icon;
+}
+.fa{
+	@extend .icon;
 }
 .fs24{
 	font-size: 24px !important;
