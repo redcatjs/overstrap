@@ -1,6 +1,9 @@
-.icon{
-	display: inline-flex;
-    vertical-align: top;
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{	
+	.icon{
+		display: inline-flex;
+		vertical-align: top;
+	}
 }
 .material-icons{
 	font-size: inherit;
