@@ -1,18 +1,29 @@
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl {
-	&.input-field {
-		.prefix{
-			~ label {
-				margin-left: 3.9rem;
-				width: calc(100% - 3.9rem);
-			}
-		}
-	}
-}
 .input-field {
 	padding-bottom:0.4rem;
 	margin-bottom: 1rem;
     position: relative;
-    input:not([type=checkbox]):not([type=radio]){
+    padding-left: 15px;
+    padding-right: 15px;
+    > *{
+		float: left;
+		position: relative;
+	}
+	
+	&,
+	.col-1 &, .col-2 &, .col-3 &, .col-4 &, .col-5 &, .col-6 &, .col-7 &, .col-8 &, .col-9 &, .col-10 &, .col-11 &, .col-12 &, .col &, .col-sm-1 &, .col-sm-2 &, .col-sm-3 &, .col-sm-4 &, .col-sm-5 &, .col-sm-6 &, .col-sm-7 &, .col-sm-8 &, .col-sm-9 &, .col-sm-10 &, .col-sm-11 &, .col-sm-12 &, .col-sm &, .col-md-1 &, .col-md-2 &, .col-md-3 &, .col-md-4 &, .col-md-5 &, .col-md-6 &, .col-md-7 &, .col-md-8 &, .col-md-9 &, .col-md-10 &, .col-md-11 &, .col-md-12 &, .col-md &, .col-lg-1 &, .col-lg-2 &, .col-lg-3 &, .col-lg-4 &, .col-lg-5 &, .col-lg-6 &, .col-lg-7 &, .col-lg-8 &, .col-lg-9 &, .col-lg-10 &, .col-lg-11 &, .col-lg-12 &, .col-lg &, .col-xl-1 &, .col-xl-2 &, .col-xl-3 &, .col-xl-4 &, .col-xl-5 &, .col-xl-6 &, .col-xl-7 &, .col-xl-8 &, .col-xl-9 &, .col-xl-10 &, .col-xl-11 &, .col-xl-12 &, .col-xl & {		
+		.prefix{
+			~ label {
+				margin-left: calc(3rem + 15px);
+				width: calc(100% - 3rem - 15px);
+			}
+		}
+	}
+	
+	label[for]{
+		cursor: pointer;
+	}
+	
+    input{
 		padding-top:0;
 		padding-bottom:0;
 /*
@@ -28,19 +39,22 @@
 			color: #757575;
 			position: absolute;
 			top: 0.3rem;
+			margin-left: 15px;
 			left: 0;
 			font-size: 1rem;
 			cursor: text;
 			@include transition(.2s ease-out);
 		}
+
+		&[type=checkbox],
+		&[type=radio]{
+			~ label{
+				margin-left: calc(3rem + 15px);
+			}
+		}
+
 	}
 	
-	input[type=checkbox],
-	input[type=radio]{
-		~ label{
-			left: 3rem;
-		}
-	}
 	
 	select.form-control:not([size]):not([multiple]){
 		height: 1.4rem;
@@ -68,23 +82,16 @@
 	
 	.prefix{
 		margin-top: 0.4rem;
-		position: absolute;
 		width: 3rem;
 		font-size: 2rem;
 		@include transition(color .2s);
 		
 		~ input,
 		~ textarea {
-			margin-left: 3rem;
-			width: 92%;
 			width: calc(100% - 3rem);
 		}
 		~ textarea {
 			padding-top: .8rem;
-		}
-		~ label {
-			width: calc(100% - 3rem);
-			margin-left: 3rem;
 		}
 		~ input {
 			@media #{$medium-and-down} {
