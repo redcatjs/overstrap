@@ -1,3 +1,18 @@
+%input-field-label{
+	color: #757575;
+	position: absolute;
+	top: 0.3rem;
+	margin-left: 15px;
+	left: 0;
+	font-size: 1rem;
+	cursor: text;
+	@include transition(.2s ease-out);
+}
+%input-field-label-up{
+	font-size: $label-font-size;
+	@include transform(translateY(-100%));
+}
+
 .input-field {
 	padding-bottom:0.4rem;
 	margin-bottom: 1rem;
@@ -19,37 +34,36 @@
 		}
 	}
 	
-	label[for]{
-		cursor: pointer;
+	textarea{
+		~ label {
+			@extend %input-field-label;
+			top: 1rem;
+		}
+		&:required{
+			box-shadow: none;
+		}
 	}
-	
     input{
 		padding-top:0;
 		padding-bottom:0;
-/*
+		
 		&:focus,
-*/
 		&[placeholder]{
 			~ label {
-				font-size: $label-font-size;
-				@include transform(translateY(-100%));
+				@extend %input-field-label-up;
 			}
 		}
 		~ label {
-			color: #757575;
-			position: absolute;
-			top: 0.3rem;
-			margin-left: 15px;
-			left: 0;
-			font-size: 1rem;
-			cursor: text;
-			@include transition(.2s ease-out);
+			@extend %input-field-label;
 		}
 
 		&[type=checkbox],
 		&[type=radio]{
 			~ label{
 				margin-left: calc(3rem + 15px);
+				&[for]{
+					cursor: pointer;
+				}
 			}
 		}
 
@@ -57,7 +71,6 @@
 	
 	
 	select.form-control:not([size]):not([multiple]){
-		height: 1.4rem;
 		padding: 0;
 		margin-top: 0;
 		
@@ -75,8 +88,7 @@
 			color: $input-focus-color;
 		}
 		label {
-			font-size: $label-font-size;
-			@include transform(translateY(-80%));
+			@extend %input-field-label-up;
 		}
 	}
 	
@@ -112,6 +124,13 @@
 			&:focus:not([readonly]){
 				border-bottom: 1px solid $input-border-color;
 				box-shadow: none;
+				~ .bar{
+					border-bottom: 0;
+					&:before,
+					&:after {
+						width:50%;
+					}
+				}
 			}
 		}
 		.bar{
@@ -133,13 +152,6 @@
 			}
 			&:after {
 				right:50%; 
-			}
-		}
-		input:focus ~ .bar{
-			border-bottom: 0;
-			&:before,
-			&:after {
-				width:50%;
 			}
 		}
 		.prefix ~ .bar{
