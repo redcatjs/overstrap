@@ -2,6 +2,7 @@
 	const input_selector = 'input[type!=checkbox][type!=radio], textarea';
 	const defaultOptions = {
 		animatedBar: true,
+		autoValidate: false,
 		validate: function(input){
 			input.trigger('validate');
 			return input.is(':valid');
@@ -13,7 +14,7 @@
 		
 		function input_validate(el){
 			el = $(el);
-			if(el.hasClass('validate')){
+			if(options.autoValidate || el.hasClass('validate')){
 				if(options.validate(el)){
 					el.removeClass('invalid').addClass('valid');
 				}
