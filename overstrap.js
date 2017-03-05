@@ -14,7 +14,7 @@
 		
 		function input_validate(el){
 			el = $(el);
-			if(options.autoValidate || el.hasClass('validate')){
+			if((options.autoValidate && !el.hasClass('no-validate')) || el.hasClass('validate')){
 				if(options.validate(el)){
 					el.removeClass('invalid').addClass('valid');
 				}
