@@ -11,16 +11,24 @@
 	$.overstrap = function(options){
 		options = $.extend(true,defaultOptions,options);
 		
-		function validate_field(input){
-			if(input.hasClass('validate')){
-				if(options.validate(input)){
-					input.removeClass('invalid')
-					input.addClass('valid');
+		function input_validate(el){
+			el = $(el);
+			if(el.hasClass('validate')){
+				if(options.validate(el)){
+					el.removeClass('invalid').addClass('valid');
 				}
 				else{
-					input.removeClass('valid');
-					input.addClass('invalid');
+					el.removeClass('valid').addClass('invalid');
 				}
+			}
+		}
+		
+		function input_filled(el){
+			if(el.tagName.toLowerCase()=='input'&&( el.type=='checkbox'||el.type=='radio' )){
+				return $(el).prop('checked');
+			}
+			else{
+				return Boolean( $(el).val().length );
 			}
 		}
 		
@@ -31,25 +39,30 @@
 				autofocus.siblings('label, i').addClass('active');
 			}
 			
-			let inputs = $el.find(input_selector);
+			let inputs = $el.find('input, textarea');
+			
 			if(inputs.length){
-				if(options.animatedBar){
+				
+				if(options.animatedBar && inputs.filter(input_selector).length){
 					$el.addClass('animated-bar');
 					if(!$el.find('.bar').length){
 						$el.append('<span class="bar" />');
 					}
 				}
+				
 				inputs.each(function(){
 					let input = $(this);
-					let val = input.val().length;
+					let val = input_filled(this);
+					
 					if(val){
-						validate_field(input);
+						input_validate(this);
 					}
 					if(val || input.is(':focus')){
 						$el.addClass('active');
 					}
 					
-					var id = input.requiredId();
+					let id = input.requiredId();
+
 					input.nextUntil('input','label').each(function(){
 						if(!this.hasAttribute('for')){
 							this.setAttribute('for',id);
@@ -58,13 +71,13 @@
 					 
 					input
 						.on('change blur reset', function(e){
-							if(input.val()){
+							if(input_filled(this)){
 								$el.addClass('active');
 							}
 							else{
 								$el.removeClass('active');
 							}
-							validate_field(input);
+							input_validate(this);
 						})
 						.on('reset', function(){
 							$(this).removeClass('valid').removeClass('invalid');

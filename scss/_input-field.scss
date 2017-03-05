@@ -19,6 +19,9 @@
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
+    float:left;
+    width: 100%;
+    
     > *{
 		float: left;
 		position: relative;
@@ -47,7 +50,6 @@
 		padding-top:0;
 		padding-bottom:0;
 		
-		&:focus,
 		&[placeholder]{
 			~ label {
 				@extend %input-field-label-up;
@@ -87,8 +89,11 @@
 		.prefix{
 			color: $input-focus-color;
 		}
-		label {
-			@extend %input-field-label-up;
+		input:not([type=checkbox]):not([type=radio]),
+		textarea{
+			~ label {
+				@extend %input-field-label-up;
+			}
 		}
 	}
 	
