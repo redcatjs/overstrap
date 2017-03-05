@@ -62,7 +62,11 @@
 		&[type=checkbox],
 		&[type=radio]{
 			~ label{
+/*
 				margin-left: calc(3rem + 15px);
+*/
+				position: relative;
+				margin-left: 3rem;
 				&[for]{
 					cursor: pointer;
 				}
