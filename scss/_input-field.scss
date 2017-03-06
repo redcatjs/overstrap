@@ -1,8 +1,5 @@
 %input-field-label{
 	color: #757575;
-	&.validation-error{
-		color: $m-red;
-	}
 	position: absolute;
 	top: 0.3rem;
 	margin-left: 15px;
@@ -165,6 +162,25 @@
 		.prefix ~ .bar{
 			width:calc(100% - 3rem);
 			margin-left: 3rem;
+		}
+	}
+
+	&.has-danger > *{
+		color: $input-error-color !important;
+		&.bar{
+			&:before,
+			&:after   {
+				background: $input-error-color;
+			}
+		}
+	}
+	&.has-success > *{
+		color: $input-success-color !important;
+		&.bar{
+			&:before,
+			&:after   {
+				background: $input-success-color;
+			}
 		}
 	}
 

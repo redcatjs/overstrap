@@ -4,24 +4,48 @@
 		animatedBar: true,
 		autoValidate: false,
 		validate: function(input){
-			input.trigger('validate');
-			return input.is(':valid');
+			$(input).trigger('validate');
+			return $(input).is(':valid');
 		}
 	};
 
 	$.overstrap = function(options){
 		options = $.extend(true,defaultOptions,options);
 
-		function input_validate(el){
-			el = $(el);
-			if((options.autoValidate && !el.hasClass('no-validate')) || el.hasClass('validate')){
-				if(options.validate(el)){
-					el.removeClass('invalid').addClass('valid');
+		function field_validate(field, isInit){
+
+			field = $(field);
+
+			if(!((options.autoValidate && !field.hasClass('no-validate')) || field.hasClass('validate'))){
+				return;
+			}
+
+			let isValid = true;
+			let isFilled = false;
+
+			field.find(':input[name]').each(function(){
+				let input = $(this);
+				if(isInit&&!isFilled&&input_filled(this)){
+					isFilled = true;
+				}
+				if(!options.validate(this)){
+					isValid = false;
+					input.removeClass('form-control-success').addClass('form-control-danger');
 				}
 				else{
-					el.removeClass('valid').addClass('invalid');
+					input.removeClass('form-control-danger').addClass('form-control-success');
+				}
+			});
+
+			if(!isInit||isFilled){
+				if(isValid){
+					field.removeClass('has-danger invalid').addClass('has-success valid');
+				}
+				else{
+					field.removeClass('has-success valid').addClass('has-danger invalid');
 				}
 			}
+
 		}
 
 		function input_filled(el){
@@ -34,6 +58,8 @@
 		}
 
 		jstack.loader('.input-field',function(){
+
+			let el = this;
 			let $el = $(this);
 			let autofocus = $el.find('input[autofocus]');
 			if(autofocus.length){
@@ -56,13 +82,13 @@
 					}
 				}
 
+				field_validate(el, true);
+
 				inputs.each(function(){
 					let input = $(this);
 					let val = input_filled(this);
+					let isFirstFilling = !val;
 
-					if(val){
-						input_validate(this);
-					}
 					if(val || input.is(':focus')){
 						$el.addClass('active');
 					}
@@ -83,10 +109,13 @@
 							else{
 								$el.removeClass('active');
 							}
-							input_validate(this);
+							isFirstFilling = false;
+							field_validate(el);
 						})
-						.on('reset', function(){
-							$(this).removeClass('valid').removeClass('invalid');
+						.on('input', function(e){
+							if(!isFirstFilling&&$(this).is(input_selector)){
+								field_validate(el);
+							}
 						})
 						.on('focus', function(){
 							$el.addClass('active');
@@ -102,7 +131,9 @@
 
 
 		$.on('reset', 'form', function(){
-			$(this).find(input_selector).trigger('reset');
+			$(this).find('.input-field').each(function(){
+				field_validate(this, true);
+			});
 		});
 
 		//bootstrap 4 bugfix !
