@@ -44,10 +44,15 @@
 
 			if(inputs.length){
 
-				if(options.animatedBar && inputs.filter(input_selector).length){
-					$el.addClass('animated-bar');
-					if(!$el.find('.bar').length){
-						$el.append('<span class="bar" />');
+				if(options.animatedBar){
+					let underlinableInputs = inputs.filter(input_selector);
+					if(underlinableInputs.length){
+						$el.addClass('animated-bar');
+						if(!$el.find('.bar').length){
+							underlinableInputs.each(function(){
+								$(this).next('label').after('<span class="bar" />');
+							});
+						}
 					}
 				}
 

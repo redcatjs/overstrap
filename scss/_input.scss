@@ -8,7 +8,7 @@ textarea{
 			}
 		}
 	}
-	
+
 	&.invalid,
 	&:focus.invalid {
 		~ label {
@@ -22,7 +22,7 @@ textarea{
 
 input:not([type=checkbox]):not([type=radio]),
 textarea.m-textarea {
-	
+
 	// General Styles
 	background-color: transparent;
 	border: none;
@@ -35,7 +35,7 @@ textarea.m-textarea {
 	box-shadow: none;
 	@include box-sizing(content-box);
 	transition: all .3s;
-	
+
 	// Disabled input style
 	&:disabled,
 	&:disabled,
@@ -44,39 +44,39 @@ textarea.m-textarea {
 		border-bottom: 1px dotted $input-disabled-color;
 		background-color: transparent;
 	}
-	
+
 	// Disabled label style
 	&:disabled+label,
 	&[readonly]+label {
 		color: $input-disabled-color;
 		background-color: transparent;
 	}
-	
+
 	// Focused input style
 	&:focus:not([readonly]) {
 		border-bottom: 1px solid $input-focus-color;
 		box-shadow: 0 1px 0 0 $input-focus-color;
 	}
-	
+
 	// Focused label style
 	&:focus:not([readonly])~label {
 		color: $input-focus-color;
 	}
-	
+
 	// Valid Input Style
 	&.valid,
 	&:focus.valid {
 		border-bottom: 1px solid $input-success-color;
 		box-shadow: 0 1px 0 0 $input-success-color;
 	}
-	
+
 	// Invalid Input Style
 	&.invalid,
 	&:focus.invalid {
 		border-bottom: 1px solid $input-error-color;
 		box-shadow: 0 1px 0 0 $input-error-color;
 	}
-	
+
 	// Form Message Shared Styles
 	& + label:after {
 		display: block;
@@ -113,13 +113,7 @@ label {
 	background-image: none;
 	border-radius: 0;
 	margin-top: 0.2rem;
-/*
-	margin-bottom: 1rem;
-*/
 	margin-bottom: 0;
-	&:focus {
-		background: transparent;
-	}
 }
 
 // Default textarea
