@@ -16,7 +16,7 @@
 
 			field = $(field);
 
-			if(!((options.autoValidate && !field.hasClass('no-validate')) || field.hasClass('validate'))){
+			if(!field.hasClass('validate')){
 				return;
 			}
 
@@ -58,7 +58,7 @@
 		}
 
 		jstack.loader('.input-field',function(){
-
+			
 			let el = this;
 			let $el = $(this);
 			let autofocus = $el.find('input[autofocus]');
@@ -67,7 +67,11 @@
 			}
 
 			let inputs = $el.find('input, textarea');
-
+			
+			if(options.autoValidate&&!$el.hasClass('no-validate')){
+				$el.addClass('validate');
+			}
+			
 			if(inputs.length){
 
 				if(options.animatedBar){
