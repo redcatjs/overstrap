@@ -153,6 +153,7 @@ textarea {
 
 .form-control:focus{
 	border-color: $brand-primary;
+	background-color: transparent;
 }
 
 /* chrome default override yellow for input type password */
