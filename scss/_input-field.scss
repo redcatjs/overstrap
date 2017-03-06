@@ -41,7 +41,7 @@
 	}
 	
 	textarea{
-		~ label {
+		+ label {
 			@extend %input-field-label;
 			top: 1rem;
 		}
@@ -54,17 +54,17 @@
 		padding-bottom:0;
 		
 		&[placeholder]{
-			~ label {
+			+ label {
 				@extend %input-field-label-up;
 			}
 		}
-		~ label {
+		+ label {
 			@extend %input-field-label;
 		}
 
 		&[type=checkbox],
 		&[type=radio]{
-			~ label{
+			+ label{
 				position: relative;
 				margin-left: 3rem;
 				&[for]{
@@ -95,7 +95,7 @@
 		}
 		input:not([type=checkbox]):not([type=radio]),
 		textarea{
-			~ label {
+			+ label {
 				@extend %input-field-label-up;
 			}
 		}
