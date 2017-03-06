@@ -171,6 +171,7 @@
 			&:before,
 			&:after   {
 				background: $input-error-color;
+				width:50%;
 			}
 		}
 	}
@@ -180,6 +181,7 @@
 			&:before,
 			&:after   {
 				background: $input-success-color;
+				width:50%;
 			}
 		}
 	}
