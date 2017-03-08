@@ -14,48 +14,24 @@ textarea.m-textarea {
 	@include box-sizing(content-box);
 	transition: all .3s;
 
-	// Disabled input style
-	&:disabled,
 	&:disabled,
 	&[readonly="readonly"] {
 		color: $input-disabled-color;
 		border-bottom: 1px dotted $input-disabled-color;
 		background-color: transparent;
+		+label {
+			color: $input-disabled-color;
+			background-color: transparent;
+		}
 	}
 
-	// Disabled label style
-	&:disabled+label,
-	&[readonly]+label {
-		color: $input-disabled-color;
-		background-color: transparent;
-	}
-
-	// Focused input style
 	&:focus:not([readonly]) {
 		border-bottom: 1px solid $input-focus-color;
 		box-shadow: 0 1px 0 0 $input-focus-color;
+		~label {
+			color: $input-focus-color;
+		}
 	}
-
-	// Focused label style
-	&:focus:not([readonly])~label {
-		color: $input-focus-color;
-	}
-
-	/*
-	// Valid Input Style
-	&.valid,
-	&:focus.valid {
-		border-bottom: 1px solid $input-success-color;
-		box-shadow: 0 1px 0 0 $input-success-color;
-	}
-
-	// Invalid Input Style
-	&.invalid,
-	&:focus.invalid {
-		border-bottom: 1px solid $input-error-color;
-		box-shadow: 0 1px 0 0 $input-error-color;
-	}
-	*/
 
 	// Form Message Shared Styles
 	& + label:after {
@@ -70,10 +46,12 @@ textarea.m-textarea {
 		padding: 0 15px;
 		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
 		font-size: 0.875rem;
-		border-bottom: 0;
-		&:focus:not([readonly]) {
-			border-bottom: 0;
-			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+		border: 0 !important;
+		
+		&:focus:not([readonly]),
+		&:hover{
+			border: 0 !important;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2),0 0 0 1px rgba(0,0,0,0.08);
 		}
 	}
 }
@@ -96,6 +74,7 @@ label {
 	margin-bottom: 0;
 }
 
+
 // Default textarea
 textarea {
 	width: 100%;
@@ -116,20 +95,7 @@ textarea {
 	}
 }
 
-// For textarea autoresize
-.hiddendiv {
-	display: none;
-	white-space: pre-wrap;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	/* future version of deprecated 'word-wrap' */
-	padding-top: 1.2rem;
-	/* prevents text jump on Enter keypress */
-}
-
-//Input color
 .input-dark-bg {
-	// Style Placeholders
 	@include placeholder {
 		color: #fff!important;
 		font-weight: 300;
@@ -143,7 +109,6 @@ textarea {
 }
 
 .input-light-bg {
-	// Style Placeholders
 	@include placeholder {
 		color: #1C2331!important;
 		font-weight: 300;
@@ -160,6 +125,7 @@ textarea {
 	border-color: $brand-primary;
 	background-color: transparent;
 }
+
 
 /* chrome default override yellow for input type password */
 input:-webkit-autofill {
