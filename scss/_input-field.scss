@@ -63,7 +63,9 @@
 		&[type=radio]{
 			+ label{
 				position: relative;
-				margin-left: 3rem;
+				&.prefixed{
+					margin-left: 3rem;
+				}
 				&[for]{
 					cursor: pointer;
 				}
