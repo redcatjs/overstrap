@@ -152,13 +152,18 @@
 				right:50%;
 			}
 		}
-		input:focus ~ .bar{
-			border-bottom: 0;
-			&:before,
-			&:after {
-				width:50%;
+		
+		textarea:focus,
+		input:focus{
+			~ .bar{
+				border-bottom: 0;
+				&:before,
+				&:after {
+					width:50%;
+				}
 			}
 		}
+		
 		.prefix ~ .bar{
 			width:calc(100% - 3rem);
 			margin-left: 3rem;
