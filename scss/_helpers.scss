@@ -568,6 +568,21 @@ img.vertical{
 	width:48px;
 	height:48px;
 }
+.img-square-32{
+	@extend %img-square;
+	width:32px;
+	height:32px;
+}
+.img-square-24{
+	@extend %img-square;
+	width:24px;
+	height:24px;
+}
+.img-square-16{
+	@extend %img-square;
+	width:16px;
+	height:16px;
+}
 .img-circle-260{
 	@extend .img-square-260;
 	@extend .round-border;
@@ -578,6 +593,18 @@ img.vertical{
 }
 .img-circle-48{
 	@extend .img-square-48;
+	@extend .round-border;
+}
+.img-circle-32{
+	@extend .img-square-32;
+	@extend .round-border;
+}
+.img-circle-24{
+	@extend .img-square-24;
+	@extend .round-border;
+}
+.img-circle-16{
+	@extend .img-square-16;
 	@extend .round-border;
 }
 
