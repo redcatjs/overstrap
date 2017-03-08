@@ -28,7 +28,7 @@
 	}
 
 	input,
-	textarea{
+	textarea.m-textarea{
 		+ label {
 			color: #757575;
 			position: absolute;
@@ -41,7 +41,7 @@
 		}
 	}
 	
-	textarea{
+	textarea.m-textarea{
 		+ label {
 			top: 1rem;
 		}
@@ -94,7 +94,7 @@
 			color: $input-focus-color;
 		}
 		input:not([type=checkbox]):not([type=radio]),
-		textarea{
+		textarea.m-textarea{
 			+ label {
 				@extend %input-field-label-up;
 			}
@@ -108,10 +108,10 @@
 		@include transition(color .2s);
 
 		~ input,
-		~ textarea {
+		~ textarea.m-textarea {
 			width: calc(100% - 3rem);
 		}
-		~ textarea {
+		~ textarea.m-textarea {
 			padding-top: .8rem;
 		}
 		~ input {
@@ -156,7 +156,7 @@
 			}
 		}
 		
-		textarea:focus,
+		textarea.m-textarea:focus,
 		input:focus{
 			~ .bar{
 				border-bottom: 0;
@@ -224,7 +224,7 @@
 		}
 		
 		input,
-		textarea{
+		textarea.m-textarea{
 			+ label {
 				margin-left: 0;
 			}
