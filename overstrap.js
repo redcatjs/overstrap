@@ -85,6 +85,7 @@
 						}
 					}
 				}
+				
 
 				field_validate(el, true);
 
@@ -92,6 +93,12 @@
 					let input = $(this);
 					let val = input_filled(this);
 					let isFirstFilling = !val;
+					
+					if(this.type=='checkbox'){
+						if(!input.next().is('label')){
+							input.after('<label></label>');
+						}
+					}
 
 					if(val || input.is(':focus')){
 						$el.addClass('active');
