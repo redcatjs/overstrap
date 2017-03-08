@@ -40,8 +40,8 @@
 			width: 18px;
 			height: 18px;
 			z-index: 0;
-			border: 2px solid $radio-empty-color;
-			border-radius: 1px;
+			border: 1px solid $radio-empty-color;
+			border-radius: 0;
 			margin-top: 2px;
 			@include transition(.2s);
 		}
@@ -60,8 +60,8 @@
 			&.filled-in:checked{
 				+ label{
 					&:after{
-						width: 12px;
-						height: 12px;
+						width: 14px;
+						height: 14px;
 					}
 				}
 			}
@@ -131,7 +131,7 @@
 		&.filled-in {
 			// General
 			+ label:after {
-				border-radius: 2px;
+				border-radius: 0;
 			}
 			+ label:before,
 			+ label:after {
@@ -156,7 +156,7 @@
 				height: 20px;
 				width: 20px;
 				background-color: transparent;
-				border: 2px solid $radio-empty-color;
+				border: 1px solid $radio-empty-color;
 				top: 0px;
 				z-index: 0;
 			}
@@ -165,8 +165,8 @@
 				+ label:before {
 					top: 0;
 					left: 1px;
-					width: 8px;
-					height: 13px;
+					width: 6px;
+					height: 11px;
 					border-top: 2px solid transparent;
 					border-left: 2px solid transparent;
 					border-right: 2px solid $input-bg-color;
@@ -178,7 +178,7 @@
 					top: 0px;
 					width: 20px;
 					height: 20px;
-					border: 2px solid $primary-color;
+					border: 1px solid $primary-color;
 					background-color: $primary-color;
 					z-index: 0;
 				}
@@ -186,7 +186,7 @@
 			// Disabled style
 			&:disabled:not(:checked) + label:before {
 				background-color: transparent;
-				border: 2px solid transparent;
+				border: 1px solid transparent;
 			}
 			&:disabled:not(:checked) + label:after {
 				border-color: transparent;
