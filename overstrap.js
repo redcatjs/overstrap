@@ -9,8 +9,30 @@
 		}
 	};
 	
-	var overstrap = {
+	let overstrap = {
 		
+	};
+	
+	overstrap.init = function(options){
+		
+		let self = this;
+		
+		this.options = $.extend(true,defaultOptions,options);
+
+		jstack.loader('.input-field',function(){
+			self.loadInputField(this);
+		});
+
+		$.on('reset', 'form', function(){
+			$(this).find('.input-field').each(function(){
+				self.validateField(this, true);
+			});
+		});
+
+		//bootstrap 4 bugfix !
+		$.on('mousedown','.dropdown-menu *',function(e){
+			return false;
+		});
 	};
 	
 	overstrap.inputFilled = function(el){
@@ -143,24 +165,7 @@
 
 	};
 	
-	$.overstrap = function(options){
-		
-		overstrap.options = $.extend(true,defaultOptions,options);
-
-		jstack.loader('.input-field',function(){
-			overstrap.loadInputField(this);
-		});
-
-		$.on('reset', 'form', function(){
-			$(this).find('.input-field').each(function(){
-				overstrap.validateField(this, true);
-			});
-		});
-
-		//bootstrap 4 bugfix !
-		$.on('mousedown','.dropdown-menu *',function(e){
-			return false;
-		});
-	};
+	
+	$.overstrap = overstrap;
 	
 }());
