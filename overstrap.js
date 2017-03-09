@@ -6,7 +6,10 @@
 		isValid: function(input){
 			$(input).trigger('validate');
 			return $(input).is(':valid');
-		}
+		},
+		validateField: function(field){
+			return field.hasClass('validate');
+		},
 	};
 	
 	let overstrap = {
@@ -45,15 +48,13 @@
 	};
 	
 	overstrap.validateField = function(field, isInit){
-		
-		let self = this;
-		
-		field = $(field);
-
-		if(!field.hasClass('validate')){
+		if(this.options.validateField(field, isInit)===false){
 			return;
 		}
-
+		this.validateFieldDefault(field, isInit);
+	};
+	overstrap.validateFieldDefault = function(field, isInit){
+		let self = this;
 		let isValid = true;
 		let isFilled = false;
 
@@ -79,9 +80,7 @@
 				field.removeClass('has-success valid').addClass('has-danger invalid');
 			}
 		}
-
 	};
-	
 	overstrap.loadInputField = function(el){
 		let self = this;
 		
@@ -112,7 +111,7 @@
 			}
 			
 
-			self.validateField(el, true);
+			self.validateField($el, true);
 
 			inputs.each(function(){
 				let input = $(this);
@@ -146,11 +145,11 @@
 							$el.removeClass('active');
 						}
 						isFirstFilling = false;
-						self.validateField(el);
+						self.validateField($el);
 					})
 					.on('input', function(e){
 						if(!isFirstFilling&&$(this).is(input_selector)){
-							self.validateField(el);
+							self.validateField($el);
 						}
 					})
 					.on('focus', function(){
