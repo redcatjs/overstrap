@@ -3,7 +3,7 @@
 	const defaultOptions = {
 		animatedBar: true,
 		autoValidate: false,
-		validate: function(input){
+		isValid: function(input){
 			$(input).trigger('validate');
 			return $(input).is(':valid');
 		}
@@ -23,14 +23,14 @@
 			self.loadInputField(this);
 		});
 
-		$.on('reset', 'form', function(){
+		$(document.body).on('reset', 'form', function(){
 			$(this).find('.input-field').each(function(){
 				self.validateField(this, true);
 			});
 		});
 
 		//bootstrap 4 bugfix !
-		$.on('mousedown','.dropdown-menu *',function(e){
+		$(document.body).on('mousedown','.dropdown-menu *',function(e){
 			return false;
 		});
 	};
@@ -62,7 +62,7 @@
 			if(isInit&&!isFilled&&self.inputFilled(this)){
 				isFilled = true;
 			}
-			if(!self.options.validate(this)){
+			if(!self.options.isValid(this)){
 				isValid = false;
 				input.removeClass('form-control-success').addClass('form-control-danger');
 			}
