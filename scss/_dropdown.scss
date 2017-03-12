@@ -1,3 +1,8 @@
 .dropdown-menu{
 	padding:0;
 }
+.dropdown{
+	> .btn{
+		margin:0;
+	}
+}
