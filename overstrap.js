@@ -36,6 +36,11 @@
 		$(document.body).on('mousedown','.dropdown-menu *',function(e){
 			return false;
 		});
+
+		Waves.init({
+			duration: 500,
+			delay: 200
+		});
 	};
 	
 	overstrap.inputFilled = function(el){
