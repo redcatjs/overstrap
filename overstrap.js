@@ -1,4 +1,4 @@
-define(["jquery","waves"],(function($,Waves){
+define(["jquery","waves"],function($,Waves){
 	const input_selector = 'input[type!=checkbox][type!=radio], textarea';
 	const defaultOptions = {
 		animatedBar: true,
