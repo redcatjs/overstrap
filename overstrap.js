@@ -21,11 +21,24 @@
 		let self = this;
 		
 		this.options = $.extend(true,defaultOptions,options);
-
-		jstack.loader('.input-field',function(){
-			self.loadInputField(this);
+		
+		let observer = new MutationObserver(function(mutations) {
+			mutations.forEach(function(mutation) {
+				$.each(mutation.addedNodes,function(node){
+					if($(node).hasClass('.input-field')){
+						self.loadInputField(node);
+					}
+				});
+			});    
 		});
 
+		observer.observe(document.body, {
+			subtree: true,
+			childList: true,
+			attributes: false,
+			characterData: false,
+		});
+		
 		$(document.body).on('reset', 'form', function(){
 			$(this).find('.input-field').each(function(){
 				self.validateField(this, true);
