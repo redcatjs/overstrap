@@ -32,8 +32,10 @@
 		let observer = new MutationObserver(function(mutations) {
 			mutations.forEach(function(mutation) {
 				$.each(mutation.addedNodes,function(node){
-					if($(node).hasClass('.input-field')('.input-field')){
-						self.loadInputField(node);
+					if(node.nodeType===Node.ELEMENT_NODE){
+						if($(node).hasClass('.input-field')('.input-field')){
+							self.loadInputField(node);
+						}
 					}
 				});
 			});    
