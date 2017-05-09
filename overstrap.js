@@ -1,4 +1,11 @@
-define(["jquery","waves"],function($,Waves){
+(function(factory){
+    if(typeof define === 'function' && define.amd){
+        define(["jquery","waves"], factory);
+    }
+    else{
+        factory(root.b);
+    }
+}(function($,Waves){
 	const input_selector = 'input[type!=checkbox][type!=radio], textarea';
 	const defaultOptions = {
 		animatedBar: true,
@@ -185,4 +192,6 @@ define(["jquery","waves"],function($,Waves){
 	
 	$.overstrap = overstrap;
 	
-});
+	return overstrap;
+	
+}));
