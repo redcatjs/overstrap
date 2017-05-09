@@ -32,7 +32,7 @@
 		let observer = new MutationObserver(function(mutations) {
 			mutations.forEach(function(mutation) {
 				$.each(mutation.addedNodes,function(node){
-					if($(node).hasClass('.input-field')){
+					if($(node).hasClass('.input-field')('.input-field')){
 						self.loadInputField(node);
 					}
 				});
@@ -44,6 +44,10 @@
 			childList: true,
 			attributes: false,
 			characterData: false,
+		});
+		
+		$('.input-field').each(function(){
+			self.loadInputField(this);
 		});
 		
 		$(document.body).on('reset', 'form', function(){
