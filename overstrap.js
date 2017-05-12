@@ -6,7 +6,7 @@
         define(["jquery","waves","bootstrap"], factory);
     }
     else{
-        factory(root.b);
+        factory($, Waves);
     }
 }(function($, Waves){
 	const input_selector = 'input[type!=checkbox][type!=radio], textarea';
