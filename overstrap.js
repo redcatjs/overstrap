@@ -3,7 +3,7 @@
 		module.exports = factory( require('jquery'), require('node-waves'), require('bootstrap') );
 	}
     else if(typeof define === 'function' && define.amd){
-        define(["jquery","waves"], factory);
+        define(["jquery","waves","bootstrap"], factory);
     }
     else{
         factory(root.b);
