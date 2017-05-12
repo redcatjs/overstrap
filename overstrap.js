@@ -1,11 +1,14 @@
 (function(factory){
-    if(typeof define === 'function' && define.amd){
+	if(typeof module === "object" && typeof module.exports === "object"){
+		module.exports = factory( require('jquery'), require('node-waves'), require('bootstrap') );
+	}
+    else if(typeof define === 'function' && define.amd){
         define(["jquery","waves"], factory);
     }
     else{
         factory(root.b);
     }
-}(function($,Waves){
+}(function($, Waves){
 	const input_selector = 'input[type!=checkbox][type!=radio], textarea';
 	const defaultOptions = {
 		animatedBar: true,
