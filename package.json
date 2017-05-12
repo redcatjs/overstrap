@@ -1,0 +1,28 @@
+{
+  "name": "overstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "overstrap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redcatjs/overstrap.git"
+  },
+  "keywords": [
+    "bootstrap4",
+    "material"
+  ],
+  "author": "Jo <jo@redcat.ninja> (https://redcat.ninja)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redcatjs/overstrap/issues"
+  },
+  "homepage": "https://github.com/redcatjs/overstrap#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.2.1",
+    "node-waves": "^0.7.5"
+  }
+}
