@@ -34,11 +34,14 @@
 		
 		let observer = new MutationObserver(function(mutations) {
 			mutations.forEach(function(mutation) {
-				$.each(mutation.addedNodes,function(node){
+				mutation.addedNodes.forEach(function(node){
 					if(node.nodeType===Node.ELEMENT_NODE){
-						if($(node).hasClass('.input-field')('.input-field')){
+						if($(node).hasClass('input-field')){
 							self.loadInputField(node);
 						}
+						$('.input-field', node).each(function(){
+							self.loadInputField(this);
+						});
 					}
 				});
 			});    
