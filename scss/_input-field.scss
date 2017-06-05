@@ -26,7 +26,65 @@
 			}
 		}
 	}
+	
+	input:not([type=checkbox]):not([type=radio]),
+	textarea.m-textarea {
 
+		// General Styles
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid $input-border-color;
+		border-radius: 0;
+		outline: none;
+		height: 2.1rem;
+		width: 100%;
+		font-size: 1rem;
+		box-shadow: none;
+		@include box-sizing(content-box);
+		transition: all .3s;
+
+		&:disabled,
+		&[readonly="readonly"] {
+			color: $input-disabled-color;
+			border-bottom: 1px dotted $input-disabled-color;
+			background-color: transparent;
+			+label {
+				color: $input-disabled-color;
+				background-color: transparent;
+			}
+		}
+
+		&:focus:not([readonly]) {
+			border-bottom: 1px solid $input-focus-color;
+			box-shadow: 0 1px 0 0 $input-focus-color;
+			~label {
+				color: $input-focus-color;
+			}
+		}
+
+		// Form Message Shared Styles
+		& + label:after {
+			display: block;
+			content: "";
+			position: absolute;
+			top: 65px;
+			opacity: 0;
+			transition: .2s opacity ease-out, .2s color ease-out;
+		}
+		&.input-alternate {
+			padding: 0 15px;
+			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+			font-size: 0.875rem;
+			border: 0 !important;
+			
+			&:focus:not([readonly]),
+			&:hover{
+				border: 0 !important;
+				box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2),0 0 0 1px rgba(0,0,0,0.08);
+			}
+		}
+	}
+	
 	input,
 	textarea.m-textarea{
 		+ label {
