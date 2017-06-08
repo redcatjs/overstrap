@@ -359,7 +359,7 @@ $danger-color: #ff4444;
 $warning-color: #ffbb33;
 $success-color: #00C851;
 $info-color: #33b5e5;
-$primary-color: color("orange", "lighten-1");
+$primary-color: color("orange", "lighten-1") !default;
 $elegant-color: #2E2E2E;
 $stylish-color: #4B515D;
 $special-color: #37474F;
